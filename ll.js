@@ -1,5 +1,7 @@
 // A record of every game from which to build the tables.
 var games = [
+	{ home: "Kevin", away: "Ryan", homeScore: 4, awayScore: 3, date: "07/20/2019", freakouts: 0 },
+	{ home: "Ryan", away: "Kevin", homeScore: 8, awayScore: 2, date: "07/20/2019", freakouts: 1 },
 	{ home: "Ryan", away: "Kevin", homeScore: 3, awayScore: 2, date: "07/19/2019", freakouts: 0 },
 	{ home: "Ryan", away: "Kevin", homeScore: 4, awayScore: 7, date: "07/19/2019", freakouts: 1 },
 	{ home: "Kevin", away: "Ryan", homeScore: 5, awayScore: 3, date: "07/19/2019", freakouts: 0 },
@@ -58,6 +60,12 @@ for (var i = 0; i < games.length; i++) {
 	score.appendChild(document.createTextNode(scoreStr));
 	date.appendChild(document.createTextNode(gm.date));
 	freakouts.appendChild(document.createTextNode(gm.freakouts));
+
+	if (gm.homeScore > gm.awayScore) {
+		home.classList.add("winner");
+	} else {
+		away.classList.add("winner");
+	}
 
 	var row = document.createElement("tr");
 	row.appendChild(away);

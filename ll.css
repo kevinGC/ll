@@ -49,9 +49,14 @@ body {
 	margin-top: 100px;
 }
 
+.winner {
+	font-weight: bold;
+}
+
 footer {
 	position: fixed;
 	bottom: 0px;
+	margin-bottom: 40px;
 	width: 100%;
 	text-align: center;
 	color: #585858;
