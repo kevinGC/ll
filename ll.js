@@ -1,8 +1,8 @@
 // A record of every game from which to build the tables.
 var games = [
-	{ home: "Ryan", away: "Kevin", homeScore: 3, awayScore: 2, date: "07/19/2019" },
-	{ home: "Ryan", away: "Kevin", homeScore: 4, awayScore: 7, date: "07/19/2019" },
-	{ home: "Kevin", away: "Ryan", homeScore: 5, awayScore: 3, date: "07/19/2019" },
+	{ home: "Ryan", away: "Kevin", homeScore: 3, awayScore: 2, date: "07/19/2019", freakouts: 0 },
+	{ home: "Ryan", away: "Kevin", homeScore: 4, awayScore: 7, date: "07/19/2019", freakouts: 1 },
+	{ home: "Kevin", away: "Ryan", homeScore: 5, awayScore: 3, date: "07/19/2019", freakouts: 0 },
 ];
 
 // A list of players with their wins and losses.
@@ -48,6 +48,8 @@ for (var i = 0; i < games.length; i++) {
 	var away = document.createElement("td");
 	var score = document.createElement("td");
 	var date = document.createElement("td");
+	var freakouts = document.createElement("td");
+	freakouts.classList.add("bigface-text");
 
 	var gm = games[i];
 	var scoreStr = gm.awayScore.toString() + " - " + gm.homeScore.toString()
@@ -55,12 +57,14 @@ for (var i = 0; i < games.length; i++) {
 	home.appendChild(document.createTextNode(gm.home));
 	score.appendChild(document.createTextNode(scoreStr));
 	date.appendChild(document.createTextNode(gm.date));
+	freakouts.appendChild(document.createTextNode(gm.freakouts));
 
 	var row = document.createElement("tr");
 	row.appendChild(away);
 	row.appendChild(home);
 	row.appendChild(score);
 	row.appendChild(date);
+	row.appendChild(freakouts);
 	schedTable.appendChild(row);
 }
 

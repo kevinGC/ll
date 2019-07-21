@@ -33,3 +33,12 @@ body {
 #schedule-hdr {
 	margin-top: 100px;
 }
+
+#bigface {
+	font-size: 40pt;
+	text-align: center;
+}
+
+.bigface-text {
+	text-align: center;
+}
