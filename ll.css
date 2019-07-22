@@ -1,7 +1,7 @@
 #content {
 	margin: auto;
-	width: 500px;
-	margin-top: 100px;
+	width: 700px;
+	margin-top: 60px;
 }
 
 table {
@@ -10,7 +10,7 @@ table {
 }
 
 th {
-	background: #efecec
+	background: #efecec;
 }
 
 td {
@@ -53,9 +53,16 @@ body {
 	font-weight: bold;
 }
 
+.league-name {
+	text-align: center;
+	margin-bottom: 60px;
+	font-size: 40pt;
+	color: #949494;
+	font-weight: lighter;
+}
+
 footer {
-	position: fixed;
-	bottom: 0px;
+	margin-top: 100px;
 	margin-bottom: 40px;
 	width: 100%;
 	text-align: center;
