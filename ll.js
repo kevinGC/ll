@@ -77,9 +77,11 @@ for (var i = 0; i < games.length; i++) {
 var recordsTable = document.getElementById("records");
 for (var i = 0; i < winsLosses.length; i++) {
 	var player = document.createElement("td");
+	player.classList.add("player");
 	var gamesPlayed = document.createElement("td");
 	var wins = document.createElement("td");
 	var losses = document.createElement("td");
+	var pct = document.createElement("td");
 	var gb = document.createElement("td");
 	var runsScored = document.createElement("td");
 	var runsAllowed = document.createElement("td");
@@ -88,11 +90,13 @@ for (var i = 0; i < winsLosses.length; i++) {
 	var gbNum = ((winsLosses[0].wins - wl.wins) + (wl.losses - winsLosses[0].losses)) / 2;
 	var runsScoredPerGame = wl.runsScored / wl.gamesPlayed;
 	var runsAllowedPerGame = wl.runsAllowed / wl.gamesPlayed;
+	var pctNum = wl.wins / (wl.wins + wl.losses);
 
 	player.appendChild(document.createTextNode(wl.name));
 	gamesPlayed.appendChild(document.createTextNode(wl.gamesPlayed));
 	wins.appendChild(document.createTextNode(wl.wins));
 	losses.appendChild(document.createTextNode(wl.losses));
+	pct.appendChild(document.createTextNode(pctNum.toFixed(3)));
 	gb.appendChild(document.createTextNode(gbNum.toString()));
 	runsScored.appendChild(document.createTextNode(runsScoredPerGame.toFixed(2)));
 	runsAllowed.appendChild(document.createTextNode(runsAllowedPerGame.toFixed(2)));
@@ -102,6 +106,7 @@ for (var i = 0; i < winsLosses.length; i++) {
 	row.appendChild(gamesPlayed);
 	row.appendChild(wins);
 	row.appendChild(losses);
+	row.appendChild(pct);
 	row.appendChild(gb);
 	row.appendChild(runsScored);
 	row.appendChild(runsAllowed);

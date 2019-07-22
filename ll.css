@@ -22,7 +22,12 @@ th, td {
 	text-align: left;
 }
 
-#records th, #records td {
+td.player {
+	background: #efecec;
+	width: 100px;
+}
+
+.records-cell {
 	width: 100%;
 }
 
