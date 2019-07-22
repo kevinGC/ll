@@ -1,5 +1,8 @@
 // A record of every game from which to build the tables.
 var games = [
+	{ home: "Matt", away: "Kevin", homeScore: 10, awayScore: 0, date: "07/21/2019", freakouts: 0 },
+	{ home: "Matt", away: "Kevin", homeScore: 1, awayScore: 5, date: "07/21/2019", freakouts: 0 },
+	{ home: "Kevin", away: "Matt", homeScore: 3, awayScore: 2, date: "07/21/2019", freakouts: 0 },
 	{ home: "Kevin", away: "Ryan", homeScore: 4, awayScore: 3, date: "07/20/2019", freakouts: 0 },
 	{ home: "Ryan", away: "Kevin", homeScore: 8, awayScore: 2, date: "07/20/2019", freakouts: 1 },
 	{ home: "Ryan", away: "Kevin", homeScore: 3, awayScore: 2, date: "07/19/2019", freakouts: 0 },
@@ -12,14 +15,14 @@ var winsLosses = [];
 // A map of player names to index in winsLosses.
 var nameIdxs = {};
 
-// winsLosses with zeroed data and setup nameIdxs.
+// Initialize winsLosses and setup nameIdxs.
 for (var i = 0; i < games.length; i++) {
 	if (nameIdxs[games[i].home] == undefined) {
-		winsLosses.push({ name: games[i].home, wins: 0, losses: 0 });
+		winsLosses.push({ name: games[i].home, wins: 0, losses: 0, gamesPlayed: 0, runsScored: 0, runsAllowed: 0 });
 		nameIdxs[games[i].home] = winsLosses.length - 1;
 	}
 	if (nameIdxs[games[i].away] == undefined) {
-		winsLosses.push({ name: games[i].away, wins: 0, losses: 0 });
+		winsLosses.push({ name: games[i].away, wins: 0, losses: 0, gamesPlayed: 0, runsScored: 0, runsAllowed: 0 });
 		nameIdxs[games[i].away] = winsLosses.length - 1;
 	}
 }
@@ -34,6 +37,12 @@ for (var i = 0; i < games.length; i++) {
 		winsLosses[nameIdxs[gm.away]].wins++;
 		winsLosses[nameIdxs[gm.home]].losses++;
 	}
+	winsLosses[nameIdxs[gm.home]].gamesPlayed++;
+	winsLosses[nameIdxs[gm.away]].gamesPlayed++;
+	winsLosses[nameIdxs[gm.home]].runsScored += gm.homeScore;
+	winsLosses[nameIdxs[gm.away]].runsScored += gm.awayScore;
+	winsLosses[nameIdxs[gm.home]].runsAllowed += gm.awayScore;
+	winsLosses[nameIdxs[gm.away]].runsAllowed += gm.homeScore;
 }
 
 // Sort by overall record (games behind).
@@ -80,22 +89,34 @@ for (var i = 0; i < games.length; i++) {
 var recordsTable = document.getElementById("records");
 for (var i = 0; i < winsLosses.length; i++) {
 	var player = document.createElement("td");
+	var gamesPlayed = document.createElement("td");
 	var wins = document.createElement("td");
 	var losses = document.createElement("td");
 	var gb = document.createElement("td");
+	var runsScored = document.createElement("td");
+	var runsAllowed = document.createElement("td");
 
 	var wl = winsLosses[i];
 	var gbNum = ((winsLosses[0].wins - wl.wins) + (wl.losses - winsLosses[0].losses)) / 2;
+	var runsScoredPerGame = wl.runsScored / wl.gamesPlayed;
+	var runsAllowedPerGame = wl.runsAllowed / wl.gamesPlayed;
+
 	player.appendChild(document.createTextNode(wl.name));
+	gamesPlayed.appendChild(document.createTextNode(wl.gamesPlayed));
 	wins.appendChild(document.createTextNode(wl.wins));
 	losses.appendChild(document.createTextNode(wl.losses));
 	gb.appendChild(document.createTextNode(gbNum.toString()));
+	runsScored.appendChild(document.createTextNode(runsScoredPerGame.toFixed(2)));
+	runsAllowed.appendChild(document.createTextNode(runsAllowedPerGame.toFixed(2)));
 
 	var row = document.createElement("tr");
 	row.appendChild(player);
+	row.appendChild(gamesPlayed);
 	row.appendChild(wins);
 	row.appendChild(losses);
 	row.appendChild(gb);
+	row.appendChild(runsScored);
+	row.appendChild(runsAllowed);
 	recordsTable.appendChild(row);
 }
 
