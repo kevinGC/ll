@@ -98,3 +98,14 @@ for (var i = 0; i < winsLosses.length; i++) {
 	row.appendChild(gb);
 	recordsTable.appendChild(row);
 }
+
+// MARQUEEEEEE
+document.getElementById("bigface").onclick = function() {
+	var danya = document.createElement("img");
+	danya.setAttribute("src", "./danya.jpg");
+	var marq = document.createElement("marquee");
+	marq.appendChild(danya);
+	marq.setAttribute("scrollamount", "40");
+	var body = document.getElementsByTagName("body")[0];
+	body.prepend(marq);
+};
