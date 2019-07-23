@@ -37,7 +37,13 @@ for (var i = 0; i < games.length; i++) {
 winsLosses.sort(function (record1, record2) {
 	var overall1 = record1.wins - record1.losses;
 	var overall2 = record2.wins - record2.losses;
-	return overall2 - overall1;
+	if (overall1 != overall2) {
+		return overall2 - overall1;
+	}
+
+	var pct1 = record1.wins / (record1.wins + record1.losses);
+	var pct2 = record2.wins / (record2.wins + record2.losses);
+	return pct2 - pct1;
 });
 
 // Populate the schedule.
