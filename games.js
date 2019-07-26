@@ -1,5 +1,10 @@
 // A record of every game from which to build the tables.
 var games = [
+	{ home: "Kevin", away: "Ryan", homeScore: 1, awayScore: 3, date: "07/25/2019", freakouts: 0 },
+	{ home: "Matt", away: "Kevin", homeScore: 1, awayScore: 3, date: "07/23/2019", freakouts: 0 },
+	{ home: "Kevin", away: "Matt", homeScore: 1, awayScore: 4, date: "07/23/2019", freakouts: 0 },
+	{ home: "Matt", away: "Kevin", homeScore: 1, awayScore: 11, date: "07/23/2019", freakouts: 0 },
+	{ home: "Ryan", away: "Matt", homeScore: 0, awayScore: 2, date: "07/23/2019", freakouts: 0 },
 	{ home: "Ryan", away: "Kevin", homeScore: 0, awayScore: 1, date: "07/22/2019", freakouts: 0 },
 	{ home: "Ryan", away: "Kevin", homeScore: 0, awayScore: 1, date: "07/22/2019", freakouts: 0 },
 	{ home: "Kevin", away: "Ryan", homeScore: 5, awayScore: 4, date: "07/22/2019", freakouts: 1 },
