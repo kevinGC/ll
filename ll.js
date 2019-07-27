@@ -1,125 +1,201 @@
-// A list of players with their wins and losses.
-var winsLosses = [];
-// A map of player names to index in winsLosses.
-var nameIdxs = {};
-
-// Initialize winsLosses and setup nameIdxs.
+// Maps player name to whether they are active in the standings table.
+var activePlayers = {};
 for (var i = 0; i < games.length; i++) {
-	if (nameIdxs[games[i].home] == undefined) {
-		winsLosses.push({ name: games[i].home, wins: 0, losses: 0, gamesPlayed: 0, runsScored: 0, runsAllowed: 0 });
-		nameIdxs[games[i].home] = winsLosses.length - 1;
-	}
-	if (nameIdxs[games[i].away] == undefined) {
-		winsLosses.push({ name: games[i].away, wins: 0, losses: 0, gamesPlayed: 0, runsScored: 0, runsAllowed: 0 });
-		nameIdxs[games[i].away] = winsLosses.length - 1;
-	}
+	activePlayers[games[i].home] = true;
+	activePlayers[games[i].away] = true;
 }
 
 // Tally wins and losses.
-for (var i = 0; i < games.length; i++) {
-	var gm = games[i];
-	if (gm.homeScore > gm.awayScore) {
-		winsLosses[nameIdxs[gm.home]].wins++;
-		winsLosses[nameIdxs[gm.away]].losses++;
-	} else {
-		winsLosses[nameIdxs[gm.away]].wins++;
-		winsLosses[nameIdxs[gm.home]].losses++;
-	}
-	winsLosses[nameIdxs[gm.home]].gamesPlayed++;
-	winsLosses[nameIdxs[gm.away]].gamesPlayed++;
-	winsLosses[nameIdxs[gm.home]].runsScored += gm.homeScore;
-	winsLosses[nameIdxs[gm.away]].runsScored += gm.awayScore;
-	winsLosses[nameIdxs[gm.home]].runsAllowed += gm.awayScore;
-	winsLosses[nameIdxs[gm.away]].runsAllowed += gm.homeScore;
-}
-
-// Sort by overall record (games behind).
-winsLosses.sort(function (record1, record2) {
-	var overall1 = record1.wins - record1.losses;
-	var overall2 = record2.wins - record2.losses;
-	if (overall1 != overall2) {
-		return overall2 - overall1;
+var tally = function() {
+	var stats = {};
+	for (var i = 0; i < games.length; i++) {
+		stats[games[i].home] = { wins: 0, losses: 0, runsScored: 0, runsAllowed: 0 };
+		stats[games[i].away] = { wins: 0, losses: 0, runsScored: 0, runsAllowed: 0 };
 	}
 
-	var pct1 = record1.wins / (record1.wins + record1.losses);
-	var pct2 = record2.wins / (record2.wins + record2.losses);
-	return pct2 - pct1;
-});
+	for (var i = 0; i < games.length; i++) {
+		var gm = games[i];
 
-// Populate the schedule.
-var schedTable = document.getElementById("schedule");
-for (var i = 0; i < games.length; i++) {
-	var home = document.createElement("td");
-	var away = document.createElement("td");
-	var score = document.createElement("td");
-	var date = document.createElement("td");
-	var freakouts = document.createElement("td");
-	freakouts.classList.add("bigface-text");
+		// Should we skip this game?
+		if (!activePlayers[gm.home] || !activePlayers[gm.away]) {
+			continue;
+		}
 
-	var gm = games[i];
-	var scoreStr = gm.awayScore.toString() + " - " + gm.homeScore.toString()
-	away.appendChild(document.createTextNode(gm.away));
-	home.appendChild(document.createTextNode(gm.home));
-	score.appendChild(document.createTextNode(scoreStr));
-	date.appendChild(document.createTextNode(gm.date));
-	freakouts.appendChild(document.createTextNode(gm.freakouts));
-
-	if (gm.homeScore > gm.awayScore) {
-		home.classList.add("winner");
-	} else {
-		away.classList.add("winner");
+		if (gm.homeScore > gm.awayScore) {
+			stats[gm.home].wins++;
+			stats[gm.away].losses++;
+		} else {
+			stats[gm.away].wins++;
+			stats[gm.home].losses++;
+		}
+		stats[gm.home].runsScored += gm.homeScore;
+		stats[gm.away].runsScored += gm.awayScore;
+		stats[gm.home].runsAllowed += gm.awayScore;
+		stats[gm.away].runsAllowed += gm.homeScore;
 	}
 
-	var row = document.createElement("tr");
-	row.appendChild(away);
-	row.appendChild(home);
-	row.appendChild(score);
-	row.appendChild(date);
-	row.appendChild(freakouts);
-	schedTable.appendChild(row);
-}
+	var entries = Object.entries(stats);
 
-// Populate the wins/losses.
-var recordsTable = document.getElementById("records");
-for (var i = 0; i < winsLosses.length; i++) {
-	var player = document.createElement("td");
-	player.classList.add("player");
-	var gamesPlayed = document.createElement("td");
-	var wins = document.createElement("td");
-	var losses = document.createElement("td");
-	var pct = document.createElement("td");
-	var gb = document.createElement("td");
-	var runsScored = document.createElement("td");
-	var runsAllowed = document.createElement("td");
+	// Sort by overall record (games behind).
+	entries.sort(function (entry1, entry2) {
+		if (!activePlayers[entry1[0]] && activePlayers[entry2[0]]) {
+			return 1;
+		} else if (activePlayers[entry1[0]] && !activePlayers[entry2[0]]) {
+			return -1;
+		}
 
-	var wl = winsLosses[i];
-	var gbNum = ((winsLosses[0].wins - wl.wins) + (wl.losses - winsLosses[0].losses)) / 2;
-	var runsScoredPerGame = wl.runsScored / wl.gamesPlayed;
-	var runsAllowedPerGame = wl.runsAllowed / wl.gamesPlayed;
-	var pctNum = wl.wins / (wl.wins + wl.losses);
+		var record1 = entry1[1];
+		var record2 = entry2[1];
+		var overall1 = record1.wins - record1.losses;
+		var overall2 = record2.wins - record2.losses;
+		if (overall1 != overall2) {
+			return overall2 - overall1;
+		}
 
-	player.appendChild(document.createTextNode(wl.name));
-	gamesPlayed.appendChild(document.createTextNode(wl.gamesPlayed));
-	wins.appendChild(document.createTextNode(wl.wins));
-	losses.appendChild(document.createTextNode(wl.losses));
-	pct.appendChild(document.createTextNode(pctNum.toFixed(3)));
-	gb.appendChild(document.createTextNode(gbNum.toString()));
-	runsScored.appendChild(document.createTextNode(runsScoredPerGame.toFixed(2)));
-	runsAllowed.appendChild(document.createTextNode(runsAllowedPerGame.toFixed(2)));
+		var pct1 = record1.wins / (record1.wins + record1.losses) || 0;
+		var pct2 = record2.wins / (record2.wins + record2.losses) || 0;
+		return pct2 - pct1;
+	});
 
-	var row = document.createElement("tr");
-	row.appendChild(player);
-	row.appendChild(gamesPlayed);
-	row.appendChild(wins);
-	row.appendChild(losses);
-	row.appendChild(pct);
-	row.appendChild(gb);
-	row.appendChild(runsScored);
-	row.appendChild(runsAllowed);
-	recordsTable.appendChild(row);
-}
+	return entries;
+};
 
-// MARQUEEEEEE
+var draw = function(entries) {
+	// Populate the schedule.
+	var scheduleRow = document.getElementById("schedule-header").nextSibling;
+	while (scheduleRow != null) {
+		var tmp = scheduleRow;
+		scheduleRow = scheduleRow.nextSibling;
+		tmp.parentNode.removeChild(tmp);
+	}
+	var schedTable = document.getElementById("schedule-body");
+	for (var i = 0; i < games.length; i++) {
+		// Skip games with inactive players.
+		var gm = games[i];
+		if (!activePlayers[gm.home] || !activePlayers[gm.away]) {
+			continue;
+		}
+
+		var home = document.createElement("td");
+		var away = document.createElement("td");
+		var score = document.createElement("td");
+		var date = document.createElement("td");
+		var freakouts = document.createElement("td");
+		freakouts.classList.add("bigface-text");
+
+		var scoreStr = gm.awayScore.toString() + " - " + gm.homeScore.toString()
+		away.appendChild(document.createTextNode(gm.away));
+		home.appendChild(document.createTextNode(gm.home));
+		score.appendChild(document.createTextNode(scoreStr));
+		date.appendChild(document.createTextNode(gm.date));
+		freakouts.appendChild(document.createTextNode(gm.freakouts));
+
+		if (gm.homeScore > gm.awayScore) {
+			home.classList.add("winner");
+		} else {
+			away.classList.add("winner");
+		}
+
+		var row = document.createElement("tr");
+		row.appendChild(away);
+		row.appendChild(home);
+		row.appendChild(score);
+		row.appendChild(date);
+		row.appendChild(freakouts);
+		schedTable.appendChild(row);
+	}
+
+	// Populate the wins/losses.
+	var recordsRow = document.getElementById("records-header").nextSibling;
+	while (recordsRow != null) {
+		var tmp = recordsRow;
+		recordsRow = recordsRow.nextSibling;
+		tmp.parentNode.removeChild(tmp);
+	}
+	var recordsTable = document.getElementById("records-body");
+	for (var i = 0; i < entries.length; i++) {
+		var player = document.createElement("td");
+		player.classList.add("player");
+		var gamesPlayed = document.createElement("td");
+		var wins = document.createElement("td");
+		var losses = document.createElement("td");
+		var pct = document.createElement("td");
+		var gb = document.createElement("td");
+		var runsScored = document.createElement("td");
+		var runsAllowed = document.createElement("td");
+
+		var wl = entries[i][1];
+		var gbNum = ((entries[0][1].wins - wl.wins) + (wl.losses - entries[0][1].losses)) / 2 || 0;
+		var runsScoredPerGame = wl.runsScored / (wl.wins + wl.losses) || 0;
+		var runsAllowedPerGame = wl.runsAllowed / (wl.wins + wl.losses) || 0;
+		var pctNum = wl.wins / (wl.wins + wl.losses) || 0;
+
+		player.appendChild(document.createTextNode(entries[i][0]));
+		gamesPlayed.appendChild(document.createTextNode(wl.wins + wl.losses));
+		wins.appendChild(document.createTextNode(wl.wins));
+		losses.appendChild(document.createTextNode(wl.losses));
+		pct.appendChild(document.createTextNode(pctNum.toFixed(3)));
+		gb.appendChild(document.createTextNode(gbNum.toString()));
+		runsScored.appendChild(document.createTextNode(runsScoredPerGame.toFixed(2)));
+		runsAllowed.appendChild(document.createTextNode(runsAllowedPerGame.toFixed(2)));
+
+		var row = document.createElement("tr");
+		row.appendChild(player);
+		row.appendChild(gamesPlayed);
+		row.appendChild(wins);
+		row.appendChild(losses);
+		row.appendChild(pct);
+		row.appendChild(gb);
+		row.appendChild(runsScored);
+		row.appendChild(runsAllowed);
+		recordsTable.appendChild(row);
+	}
+
+	var playerCells = document.getElementsByClassName("player");
+	for (var i = 0; i < playerCells.length; i++) {
+		var th = playerCells[i];
+		for (var td = th.nextSibling; td != null; td = td.nextSibling) {
+			if (activePlayers[entries[i][0]]) {
+				td.classList.remove("inactive");
+			} else {
+				td.classList.add("inactive");
+			}
+		}
+	}
+
+	// Head-to-head.
+	for (var i = 0; i < playerCells.length; i++) {
+		playerCells[i].onclick = function(i, entries) {
+			return function () {
+				console.log(i);
+				activePlayers[entries[i][0]] = !activePlayers[entries[i][0]];
+
+				var numActive = Object.values(activePlayers).reduce((acc, cur) => {
+					return acc + (cur ? 1 : 0);
+				}, 0);
+				console.log("numActive: " + numActive);
+
+				// If nothing is active, set everything to active.
+				if (numActive <= 1) {
+					for (const key of Object.keys(activePlayers)) {
+						activePlayers[key] = true;
+					}
+				}
+
+				// Re-compute stats with just active players.
+				draw(tally());
+			}
+		}(i, entries);
+	}
+
+
+};
+
+draw(tally());
+
+// Anything below this line is useless.
+
+// MARQUEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE.
 document.getElementById("bigface").onclick = function() {
 	var danya = document.createElement("img");
 	danya.setAttribute("src", "./danya.jpg");
