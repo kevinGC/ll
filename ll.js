@@ -1,3 +1,7 @@
+// Matt doesn't want to count all the stats -- blame him for this.
+const skipPlayers = ["Danya"];
+const skipName = "skip";
+
 // Maps player name to whether they are active in the standings table.
 var activePlayers = {};
 for (var i = 0; i < games.length; i++) {
@@ -8,7 +12,7 @@ for (var i = 0; i < games.length; i++) {
 // Tally wins and losses.
 var tally = function() {
 	var stats = {};
-	stats["nobody"] = { wins: 0, losses: 0, runsScored: 0, runsAllowed: 0 };
+	stats[skipName] = { wins: 0, losses: 0, runsScored: 0, runsAllowed: 0 };
 	for (var i = 0; i < games.length; i++) {
 		stats[games[i].home] = { wins: 0, losses: 0, runsScored: 0, runsAllowed: 0 };
 		stats[games[i].away] = { wins: 0, losses: 0, runsScored: 0, runsAllowed: 0 };
@@ -22,14 +26,12 @@ var tally = function() {
 			continue;
 		}
 
-		// Keep Danya's stats from polluting the rest of them. He's so,
-		// so terrible.
 		var home = gm.home;
 		var away = gm.away;
-		if (gm.home == "Danya") {
-			away = "nobody";
-		} else if (gm.away == "Danya") {
-			home = "nobody";
+		if (skipPlayers.includes(home)) {
+			away = skipName;
+		} else if (skipPlayers.includes(away)) {
+			home = skipName;
 		}
 
 		if (gm.homeScore > gm.awayScore) {
@@ -45,20 +47,12 @@ var tally = function() {
 		stats[away].runsAllowed += gm.homeScore;
 	}
 
-	// Remove the "nobody" entry used to compensate for Danya's suckiness.
-	delete stats["nobody"];
+	delete stats[skipName];
 
 	var entries = Object.entries(stats);
 
 	// Sort by overall record (games behind).
 	entries.sort(function (entry1, entry2) {
-		// Danya is always last.
-		if (entry1[0] == "Danya") {
-			return 1;
-		} else if (entry2[0] == "Danya") {
-			return -1;
-		}
-
 		if (!activePlayers[entry1[0]] && activePlayers[entry2[0]]) {
 			return 1;
 		} else if (activePlayers[entry1[0]] && !activePlayers[entry2[0]]) {
@@ -67,15 +61,16 @@ var tally = function() {
 
 		var record1 = entry1[1];
 		var record2 = entry2[1];
-		var overall1 = record1.wins - record1.losses;
-		var overall2 = record2.wins - record2.losses;
-		if (overall1 != overall2) {
-			return overall2 - overall1;
-		}
 
 		var pct1 = record1.wins / (record1.wins + record1.losses) || 0;
 		var pct2 = record2.wins / (record2.wins + record2.losses) || 0;
-		return pct2 - pct1;
+		if (pct1 != pct2) {
+			return pct2 - pct1;
+		}
+
+		var overall1 = record1.wins - record1.losses;
+		var overall2 = record2.wins - record2.losses;
+		return overall2 - overall1;
 	});
 
 
