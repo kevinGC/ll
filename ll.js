@@ -8,6 +8,7 @@ for (var i = 0; i < games.length; i++) {
 // Tally wins and losses.
 var tally = function() {
 	var stats = {};
+	stats["nobody"] = { wins: 0, losses: 0, runsScored: 0, runsAllowed: 0 };
 	for (var i = 0; i < games.length; i++) {
 		stats[games[i].home] = { wins: 0, losses: 0, runsScored: 0, runsAllowed: 0 };
 		stats[games[i].away] = { wins: 0, losses: 0, runsScored: 0, runsAllowed: 0 };
@@ -21,23 +22,43 @@ var tally = function() {
 			continue;
 		}
 
-		if (gm.homeScore > gm.awayScore) {
-			stats[gm.home].wins++;
-			stats[gm.away].losses++;
-		} else {
-			stats[gm.away].wins++;
-			stats[gm.home].losses++;
+		// Keep Danya's stats from polluting the rest of them. He's so,
+		// so terrible.
+		var home = gm.home;
+		var away = gm.away;
+		if (gm.home == "Danya") {
+			away = "nobody";
+		} else if (gm.away == "Danya") {
+			home = "nobody";
 		}
-		stats[gm.home].runsScored += gm.homeScore;
-		stats[gm.away].runsScored += gm.awayScore;
-		stats[gm.home].runsAllowed += gm.awayScore;
-		stats[gm.away].runsAllowed += gm.homeScore;
+
+		if (gm.homeScore > gm.awayScore) {
+			stats[home].wins++;
+			stats[away].losses++;
+		} else {
+			stats[away].wins++;
+			stats[home].losses++;
+		}
+		stats[home].runsScored += gm.homeScore;
+		stats[away].runsScored += gm.awayScore;
+		stats[home].runsAllowed += gm.awayScore;
+		stats[away].runsAllowed += gm.homeScore;
 	}
+
+	// Remove the "nobody" entry used to compensate for Danya's suckiness.
+	delete stats["nobody"];
 
 	var entries = Object.entries(stats);
 
 	// Sort by overall record (games behind).
 	entries.sort(function (entry1, entry2) {
+		// Danya is always last.
+		if (entry1[0] == "Danya") {
+			return 1;
+		} else if (entry2[0] == "Danya") {
+			return -1;
+		}
+
 		if (!activePlayers[entry1[0]] && activePlayers[entry2[0]]) {
 			return 1;
 		} else if (activePlayers[entry1[0]] && !activePlayers[entry2[0]]) {
@@ -56,6 +77,7 @@ var tally = function() {
 		var pct2 = record2.wins / (record2.wins + record2.losses) || 0;
 		return pct2 - pct1;
 	});
+
 
 	return entries;
 };
