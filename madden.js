@@ -12,10 +12,10 @@ for (var i = 0; i < games.length; i++) {
 // Tally wins and losses.
 var tally = function() {
 	var stats = {};
-	stats[skipName] = { wins: 0, losses: 0, runsScored: 0, runsAllowed: 0 };
+	stats[skipName] = { wins: 0, losses: 0, pointsScored: 0, pointsAllowed: 0 };
 	for (var i = 0; i < games.length; i++) {
-		stats[games[i].home] = { wins: 0, losses: 0, runsScored: 0, runsAllowed: 0 };
-		stats[games[i].away] = { wins: 0, losses: 0, runsScored: 0, runsAllowed: 0 };
+		stats[games[i].home] = { wins: 0, losses: 0, ties: 0, pointsScored: 0, pointsAllowed: 0 };
+		stats[games[i].away] = { wins: 0, losses: 0, ties: 0, pointsScored: 0, pointsAllowed: 0 };
 	}
 
 	for (var i = 0; i < games.length; i++) {
@@ -37,14 +37,18 @@ var tally = function() {
 		if (gm.homeScore > gm.awayScore) {
 			stats[home].wins++;
 			stats[away].losses++;
-		} else {
+		} else if (gm.awayScore > gm.homeScore) {
 			stats[away].wins++;
 			stats[home].losses++;
+		} else {
+			// Tie game.
+			stats[away].ties++;
+			stats[home].ties++;
 		}
-		stats[home].runsScored += gm.homeScore;
-		stats[away].runsScored += gm.awayScore;
-		stats[home].runsAllowed += gm.awayScore;
-		stats[away].runsAllowed += gm.homeScore;
+		stats[home].pointsScored += gm.homeScore;
+		stats[away].pointsScored += gm.awayScore;
+		stats[home].pointsAllowed += gm.awayScore;
+		stats[away].pointsAllowed += gm.homeScore;
 	}
 
 	delete stats[skipName];
@@ -62,8 +66,8 @@ var tally = function() {
 		var record1 = entry1[1];
 		var record2 = entry2[1];
 
-		var pct1 = record1.wins / (record1.wins + record1.losses) || 0;
-		var pct2 = record2.wins / (record2.wins + record2.losses) || 0;
+		var pct1 = record1.wins / (record1.wins + record1.losses + record1.ties) || 0;
+		var pct2 = record2.wins / (record2.wins + record2.losses + record2.ties) || 0;
 		if (pct1 != pct2) {
 			return pct2 - pct1;
 		}
@@ -72,7 +76,6 @@ var tally = function() {
 		var overall2 = record2.wins - record2.losses;
 		return overall2 - overall1;
 	});
-
 
 	return entries;
 };
@@ -106,7 +109,7 @@ var draw = function(entries) {
 
 		if (gm.homeScore > gm.awayScore) {
 			home.classList.add("winner");
-		} else {
+		} else if (gm.awayScore > gm.homeScore) {
 			away.classList.add("winner");
 		}
 
@@ -132,35 +135,38 @@ var draw = function(entries) {
 		var gamesPlayed = document.createElement("td");
 		var wins = document.createElement("td");
 		var losses = document.createElement("td");
+		var ties = document.createElement("td");
 		var pct = document.createElement("td");
 		var gb = document.createElement("td");
-		var runsScored = document.createElement("td");
-		var runsAllowed = document.createElement("td");
+		var pointsScored = document.createElement("td");
+		var pointsAllowed = document.createElement("td");
 
 		var wl = entries[i][1];
 		var gbNum = ((entries[0][1].wins - wl.wins) + (wl.losses - entries[0][1].losses)) / 2 || 0;
-		var runsScoredPerGame = wl.runsScored / (wl.wins + wl.losses) || 0;
-		var runsAllowedPerGame = wl.runsAllowed / (wl.wins + wl.losses) || 0;
+		var pointsScoredPerGame = wl.pointsScored / (wl.wins + wl.losses) || 0;
+		var pointsAllowedPerGame = wl.pointsAllowed / (wl.wins + wl.losses) || 0;
 		var pctNum = wl.wins / (wl.wins + wl.losses) || 0;
 
 		player.appendChild(document.createTextNode(entries[i][0]));
 		gamesPlayed.appendChild(document.createTextNode(wl.wins + wl.losses));
 		wins.appendChild(document.createTextNode(wl.wins));
 		losses.appendChild(document.createTextNode(wl.losses));
+		ties.appendChild(document.createTextNode(wl.ties));
 		pct.appendChild(document.createTextNode(pctNum.toFixed(3)));
 		gb.appendChild(document.createTextNode(gbNum.toString()));
-		runsScored.appendChild(document.createTextNode(runsScoredPerGame.toFixed(2)));
-		runsAllowed.appendChild(document.createTextNode(runsAllowedPerGame.toFixed(2)));
+		pointsScored.appendChild(document.createTextNode(pointsScoredPerGame.toFixed(2)));
+		pointsAllowed.appendChild(document.createTextNode(pointsAllowedPerGame.toFixed(2)));
 
 		var row = document.createElement("tr");
 		row.appendChild(player);
 		row.appendChild(gamesPlayed);
 		row.appendChild(wins);
 		row.appendChild(losses);
+		row.appendChild(ties);
 		row.appendChild(pct);
 		row.appendChild(gb);
-		row.appendChild(runsScored);
-		row.appendChild(runsAllowed);
+		row.appendChild(pointsScored);
+		row.appendChild(pointsAllowed);
 		recordsTable.appendChild(row);
 	}
 
@@ -205,16 +211,3 @@ var draw = function(entries) {
 };
 
 draw(tally());
-
-// Anything below this line is useless.
-
-// MARQUEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE.
-document.getElementById("bigface").onclick = function() {
-	var danya = document.createElement("img");
-	danya.setAttribute("src", "./danya.jpg");
-	var marq = document.createElement("marquee");
-	marq.appendChild(danya);
-	marq.setAttribute("scrollamount", "40");
-	var body = document.getElementsByTagName("body")[0];
-	body.prepend(marq);
-};

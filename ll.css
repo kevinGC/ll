@@ -4,6 +4,38 @@
 	margin-top: 60px;
 }
 
+#navbar {
+	height: 25px;
+}
+
+.active {
+	background-color: #1111114f;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #efecec;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+	background-color: #1111114f;
+}
+
 table {
 	border-spacing: 0px;
 	width: 100%;
@@ -24,7 +56,7 @@ th, td {
 
 td.player {
 	background: #efecec;
-	width: 100px;
+	width: 50;
 }
 
 .records-cell {
@@ -39,18 +71,15 @@ body {
 	margin-top: 100px;
 }
 
-#bigface {
-	font-size: 40pt;
-	text-align: center;
-}
-
-.bigface-text {
-	text-align: center;
-}
-
 #logo {
 	margin: auto;
 	width: 260px;
+	margin-top: 100px;
+}
+
+#bradylogo {
+	margin: auto;
+	width: 634px;
 	margin-top: 100px;
 }
 
