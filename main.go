@@ -54,7 +54,7 @@ func main() {
 		}
 
 		player := PlayerStats{
-			Rank:          fields[0],
+			Rank:          strings.ReplaceAll(fields[0], "*", ""),
 			Name:          template.HTML(fields[1][5:]), // Note: This always starts with the useless string "logo".
 			WinLossTie:    fields[2],
 			PointsFor:     fields[3],
