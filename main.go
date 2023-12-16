@@ -31,9 +31,15 @@ type PlayerStats struct {
 	WaiverBudget  string
 	Waiver        string
 	Moves         string
+
+	Link string
 }
 
 var players []PlayerStats
+
+var playerLinks = map[string]string{
+	"cristian's team": "https://www.youtube.com/watch?v=aX97OF1p4nU&t=48s",
+}
 
 func main() {
 	// Skip the first line, which is just column headers.
@@ -55,6 +61,9 @@ func main() {
 			WaiverBudget:  fields[6],
 			Waiver:        fields[7],
 			Moves:         fields[8],
+		}
+		if link, ok := playerLinks[player.Name]; ok {
+			player.Link = link
 		}
 		players = append(players, player)
 	}
@@ -99,5 +108,5 @@ func ff2023(response http.ResponseWriter, request *http.Request) {
 			Active: "ff2023",
 		},
 	}
-	maddenTemplate.ExecuteTemplate(response, "base", data)
+	ff2023Template.ExecuteTemplate(response, "base", data)
 }
