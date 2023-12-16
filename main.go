@@ -6,6 +6,10 @@ import (
 	"net/http"
 )
 
+type HeaderData struct {
+	Active string
+}
+
 var (
 	smbTemplate    = template.Must(template.ParseFiles("templates/smb.html", "templates/base.html"))
 	maddenTemplate = template.Must(template.ParseFiles("templates/madden.html", "templates/base.html"))
@@ -21,9 +25,23 @@ func main() {
 }
 
 func index(response http.ResponseWriter, request *http.Request) {
-	smbTemplate.Execute(response, nil)
+	var data = &struct {
+		HeaderData HeaderData
+	}{
+		HeaderData: HeaderData{
+			Active: "smb",
+		},
+	}
+	smbTemplate.ExecuteTemplate(response, "base", data)
 }
 
 func madden(response http.ResponseWriter, request *http.Request) {
-	maddenTemplate.Execute(response, nil)
+	var data = &struct {
+		HeaderData HeaderData
+	}{
+		HeaderData: HeaderData{
+			Active: "madden",
+		},
+	}
+	maddenTemplate.ExecuteTemplate(response, "base", data)
 }

@@ -1,0 +1,23 @@
+{{ define "base" }}
+<html>
+  <head>
+    <title>Lucriti Lounge</title>
+    <link rel="stylesheet" href="/static/ll.css">
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div id="navbar">
+      <ul>
+        <li><a {{if eq .HeaderData.Active "smb"}}class="active"{{end}} href="/">Super Mega Baseball</a></li>
+        <li><a {{if eq .HeaderData.Active "madden"}}class="active"{{end}} href="/madden">Madden</a></li>
+      </ul>
+    </div>
+
+    {{ template "content" }}
+
+    <footer>
+      &copy; 2023 The Lucriti Lounge
+    </footer>
+  </body>
+</html>
+{{ end }}
