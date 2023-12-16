@@ -116,3 +116,8 @@ marquee img {
 .inactive {
 	color: #dedede;
 }
+
+div > svg {
+	height: 100%;
+	width: auto;
+}

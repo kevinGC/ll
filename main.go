@@ -22,6 +22,9 @@ var (
 //go:embed ff2023_stats.txt
 var ff2023Stats string
 
+//go:embed static/bracket.svg
+var bracketSVG string
+
 type PlayerStats struct {
 	Rank          string
 	Name          template.HTML
@@ -101,12 +104,14 @@ func madden(response http.ResponseWriter, request *http.Request) {
 func ff2023(response http.ResponseWriter, request *http.Request) {
 	var data = &struct {
 		Players    []PlayerStats
+		Bracket    template.HTML
 		HeaderData HeaderData
 	}{
 		Players: players,
 		HeaderData: HeaderData{
 			Active: "ff2023",
 		},
+		Bracket: template.HTML(bracketSVG),
 	}
 	ff2023Template.ExecuteTemplate(response, "base", data)
 }
