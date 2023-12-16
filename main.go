@@ -2,6 +2,7 @@ package main
 
 import (
 	_ "embed"
+	"fmt"
 	"html/template"
 	"log"
 	"net/http"
@@ -23,7 +24,7 @@ var ff2023Stats string
 
 type PlayerStats struct {
 	Rank          string
-	Name          string
+	Name          template.HTML
 	WinLossTie    string
 	PointsFor     string
 	PointsAgainst string
@@ -31,14 +32,12 @@ type PlayerStats struct {
 	WaiverBudget  string
 	Waiver        string
 	Moves         string
-
-	Link string
 }
 
 var players []PlayerStats
 
-var playerLinks = map[string]string{
-	"cristian's team": "https://www.youtube.com/watch?v=aX97OF1p4nU&t=48s",
+var playerLinks = map[template.HTML]string{
+	"Goin rogue": "https://www.youtube.com/watch?v=aX97OF1p4nU&t=48s",
 }
 
 func main() {
@@ -53,7 +52,7 @@ func main() {
 
 		player := PlayerStats{
 			Rank:          fields[0],
-			Name:          fields[1], // Note: This always starts with the useless string "logo".
+			Name:          template.HTML(fields[1][5:]), // Note: This always starts with the useless string "logo".
 			WinLossTie:    fields[2],
 			PointsFor:     fields[3],
 			PointsAgainst: fields[4],
@@ -63,7 +62,7 @@ func main() {
 			Moves:         fields[8],
 		}
 		if link, ok := playerLinks[player.Name]; ok {
-			player.Link = link
+			player.Name = template.HTML(fmt.Sprintf(`<a href="%s">%s</a>`, link, player.Name))
 		}
 		players = append(players, player)
 	}
@@ -104,6 +103,7 @@ func ff2023(response http.ResponseWriter, request *http.Request) {
 		Players    []PlayerStats
 		HeaderData HeaderData
 	}{
+		Players: players,
 		HeaderData: HeaderData{
 			Active: "ff2023",
 		},

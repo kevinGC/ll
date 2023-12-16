@@ -1,44 +1,35 @@
 {{ define "content" }}
-<div id="logo">
-  <img src="/static/kevin_durant.jpg" alt="I'm not explaining this to you.">
-  <p>You awake to Kevin Durant in your house</p>
+<div id="bradyLogo">
+  <img style="max-width: 100%;" src="/static/kevin_durant.jpg" alt="I'm not explaining this to you.">
+  <p style="font-style: italic; text-align: center;">You awake to Kevin Durant in your house</p>
 </div>
-<div id="content" class="table1">
+<div id="content" class="table1" style="width: 750px;">
   <h1 class="league-name">League of Extraordionary Trolls</h1>
 
   <p>League winner: TBD ($800)</p>
 
-  <p>Points for winner: Danya "Eloquent" Gordin ($120)</p>
+  <p>Points winner: Danya "Eloquent" Gordin ($120)</p>
 
   <h2>Standings</h2>
   <table id="records">
     <tbody id="records-body">
       <tr id="records-header">
-        <th>Player</th>
-        <th>GP</th>
-        <th>W</th>
-        <th>L</th>
-        <th>PCT</th>
-        <th>GB</th>
-        <th>RS/G</th>
-        <th>RA/G</th>
+        <th>Rank</th>
+        <th>Team</th>
+        <th>W-L-T</th>
+        <th>PF</th>
+        <th>PA</th>
       </tr>
-    </tbody>
-  </table>
-
-  <h2 id="schedule-hdr">Schedule</h2>
-  <table id="schedule">
-    <tbody id="schedule-body">
-      <tr id="schedule-header">
-        <th>Away</th>
-        <th>Home</th>
-        <th>Score</th>
-        <th>Date</th>
+      {{ range .Players }}
+      <tr>
+        <td>{{ .Rank }}</td>
+        <td>{{ .Name }}</td>
+        <td>{{ .WinLossTie }}</td>
+        <td>{{ .PointsFor }}</td>
+        <td>{{ .PointsAgainst }}</td>
       </tr>
+      {{ end }}
     </tbody>
   </table>
 </div>
-
-<script src="/static/games.js"></script>
-<script src="/static/ll.js"></script>
 {{ end }}
