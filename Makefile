@@ -3,6 +3,14 @@ service := ll
 region := us-west1
 image := gcr.io/$(project)/$(service)
 
+# Building locally on a Mac produces a binary unusable by Cloud Run. So let
+# Cloud Build take care of building on Mac, but do it locally on Linux.
+ifeq ($(shell uname),Darwin)
+	deploy_method := deploy-source
+else
+	deploy_method := deploy-image
+endif
+
 # TODO: Separate run and build from docker analogues.
 
 run: build
@@ -16,14 +24,6 @@ build:
 ###########################################################
 # Deploy
 ###########################################################
-
-# Building locally on a Mac produces a binary unusable by Cloud Run. So let
-# Cloud Build take care of building on Mac, but do it locally on Linux.
-ifeq ($(shell uname),Darwin)
-	deploy_method := deploy-source
-else
-	deploy_method := deploy-image
-endif
 
 deploy-site: $(deploy_method)
 .PHONY: deploy-site
