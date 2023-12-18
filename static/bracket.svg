@@ -24,12 +24,12 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.30779242"
-     inkscape:cx="1129.0077"
-     inkscape:cy="732.63663"
-     inkscape:window-width="1512"
-     inkscape:window-height="916"
-     inkscape:window-x="0"
-     inkscape:window-y="38"
+     inkscape:cx="1130.6321"
+     inkscape:cy="731.01215"
+     inkscape:window-width="3008"
+     inkscape:window-height="1639"
+     inkscape:window-x="1920"
+     inkscape:window-y="25"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
      showgrid="false" />
@@ -83,6 +83,36 @@
        width="539.32454"
        height="90.97039"
        id="rect2-2-7-9" />
+    <rect
+       x="162.44714"
+       y="25.991543"
+       width="500.33722"
+       height="90.97039"
+       id="rect2-8" />
+    <rect
+       x="162.44714"
+       y="25.991543"
+       width="500.33722"
+       height="90.97039"
+       id="rect2-2-1-2" />
+    <rect
+       x="162.44714"
+       y="25.991543"
+       width="500.33722"
+       height="90.97039"
+       id="rect2-2-1-8" />
+    <rect
+       x="162.44714"
+       y="25.991543"
+       width="500.33722"
+       height="90.97039"
+       id="rect2-5-2" />
+    <rect
+       x="162.44714"
+       y="25.991543"
+       width="539.32452"
+       height="90.97039"
+       id="rect2-2-7-9-0" />
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -185,62 +215,93 @@
        y="0"><tspan
          x="192.85072"
          y="74.649775"
-         id="tspan9">8 before ill fresh</tspan></text>
+         id="tspan1">8 before ill fresh</tspan></text>
     <g
-       id="g3">
-      <g
-         id="g5"
-         transform="matrix(1.3447449,0,0,1,-26.086653,-0.085459)">
-        <path
-           style="fill:#000000;stroke:#000000;stroke-width:3.06479;stroke-dasharray:none;stroke-opacity:1"
-           d="M 51.517503,51.067037 H 142.12767"
-           id="path3-7" />
-        <path
-           style="fill:#000000;stroke:#000000;stroke-width:3.06479;stroke-dasharray:none;stroke-opacity:1"
-           d="M 51.517514,150.35568 H 142.12766"
-           id="path3-9-6" />
-      </g>
-      <text
-         xml:space="preserve"
-         transform="matrix(0.26458333,0,0,0.26458333,-6.0416432,25.788484)"
-         id="text2"
-         style="font-size:53.3333px;white-space:pre;shape-inside:url(#rect2);display:inline;fill:#000000;stroke:none;stroke-width:12.3099;stroke-dasharray:none;stroke-opacity:1;text-align:center"
-         x="363.12241"
-         y="0"><tspan
-           x="236.23611"
-           y="74.649775"
-           id="tspan10">1 Sugar Bear</tspan></text>
-      <text
-         xml:space="preserve"
-         transform="matrix(0.26458333,0,0,0.26458333,-5.063236,324.15257)"
-         id="text2-8-9"
-         style="font-size:53.3333px;text-align:center;white-space:pre;shape-inside:url(#rect2-2-7);display:inline;fill:#000000;stroke:none;stroke-width:12.3099;stroke-dasharray:none;stroke-opacity:1"
-         x="328.65625"
-         y="0"><tspan
-           x="269.37411"
-           y="74.649775"
-           id="tspan11">5 Druglord</tspan></text>
-      <text
-         xml:space="preserve"
-         transform="matrix(0.26458333,0,0,0.26458333,-4.9771085,225.44634)"
-         id="text2-8-95"
-         style="font-size:53.3333px;text-align:center;white-space:pre;shape-inside:url(#rect2-2-1);display:inline;fill:#000000;stroke:none;stroke-width:12.3099;stroke-dasharray:none;stroke-opacity:1"
-         x="316.48178"
-         y="0"><tspan
-           x="284.08764"
-           y="74.649775"
-           id="tspan12">4 GOATse</tspan></text>
+       id="g5"
+       transform="matrix(1.3447449,0,0,1,-26.086653,-0.085459)">
+      <path
+         style="fill:#000000;stroke:#000000;stroke-width:3.06479;stroke-dasharray:none;stroke-opacity:1"
+         d="M 51.517503,51.067037 H 142.12767"
+         id="path3-7" />
+      <path
+         style="fill:#000000;stroke:#000000;stroke-width:3.06479;stroke-dasharray:none;stroke-opacity:1"
+         d="M 51.517514,150.35568 H 142.12766"
+         id="path3-9-6" />
     </g>
     <text
        xml:space="preserve"
-       transform="matrix(0.26458333,0,0,0.26458333,485.6877,25.78848)"
+       transform="matrix(0.26458333,0,0,0.26458333,-6.0416432,25.788484)"
+       id="text2"
+       style="font-size:53.3333px;text-align:center;white-space:pre;shape-inside:url(#rect2);display:inline;fill:#000000;stroke:none;stroke-width:12.3099;stroke-dasharray:none;stroke-opacity:1"
+       x="363.12241"
+       y="0"><tspan
+         x="236.23611"
+         y="74.649775"
+         id="tspan2">1 Sugar Bear</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,113.43745,75.946066)"
+       id="text2-89"
+       style="font-size:53.3333px;text-align:center;white-space:pre;shape-inside:url(#rect2-8);display:inline;fill:#000000;stroke:none;stroke-width:12.3099;stroke-dasharray:none;stroke-opacity:1"
+       x="363.12241"
+       y="0"><tspan
+         x="236.23611"
+         y="74.649775"
+         id="tspan3">1 Sugar Bear</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-5.063236,324.15257)"
+       id="text2-8-9"
+       style="font-size:53.3333px;text-align:center;white-space:pre;shape-inside:url(#rect2-2-7);display:inline;fill:#000000;stroke:none;stroke-width:12.3099;stroke-dasharray:none;stroke-opacity:1"
+       x="328.65625"
+       y="0"><tspan
+         x="269.37411"
+         y="74.649775"
+         id="tspan4">5 Druglord</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-4.9771085,225.44634)"
+       id="text2-8-95"
+       style="font-size:53.3333px;text-align:center;white-space:pre;shape-inside:url(#rect2-2-1);display:inline;fill:#000000;stroke:none;stroke-width:12.3099;stroke-dasharray:none;stroke-opacity:1;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;opacity:1;vector-effect:none;fill-opacity:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       x="316.48178"
+       y="0"><tspan
+         x="284.08764"
+         y="74.649775"
+         id="tspan6"><tspan
+           style="baseline-shift:baseline;vector-effect:none;stop-color:#000000;stop-opacity:1"
+           id="tspan5">4 GOATse</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,113.64237,275.00057)"
+       id="text2-8-95-6"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.3333px;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:center;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:pre;shape-inside:url(#rect2-2-1-8);display:inline;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:12.3099;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
+       x="316.48178"
+       y="0"><tspan
+         x="284.08764"
+         y="74.649775"
+         id="tspan8"><tspan
+           style="baseline-shift:baseline;vector-effect:none;stop-color:#000000;stop-opacity:1"
+           id="tspan7">4 GOATse</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,489.98578,26.648096)"
        id="text2-3"
        style="font-size:53.3333px;white-space:pre;shape-inside:url(#rect2-5);display:inline;fill:#000000;stroke:none;stroke-width:12.3099;stroke-dasharray:none;stroke-opacity:1"
        x="190.2579"
        y="0"><tspan
          x="162.44727"
          y="74.649775"
-         id="tspan13">3 World of TANKS</tspan></text>
+         id="tspan9">3 World of TANKS</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,360.85076,77.47393)"
+       id="text2-3-9"
+       style="font-size:53.3333px;white-space:pre;shape-inside:url(#rect2-5-2);display:inline;fill:#000000;stroke:none;stroke-width:12.3099;stroke-dasharray:none;stroke-opacity:1"
+       x="190.2579"
+       y="0"><tspan
+         x="162.44727"
+         y="74.649775"
+         id="tspan10">3 World of TANKS</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,486.86248,126.47683)"
@@ -250,26 +311,36 @@
        y="0"><tspan
          x="245.84548"
          y="74.649775"
-         id="tspan14">6 Eastbound</tspan></text>
+         id="tspan11">6 Eastbound</tspan></text>
     <text
        xml:space="preserve"
-       transform="matrix(0.26458333,0,0,0.26458333,489.24496,324.15257)"
+       transform="matrix(0.26458333,0,0,0.26458333,482.36803,223.57748)"
        id="text2-8-9-7"
        style="font-size:53.3333px;text-align:center;white-space:pre;shape-inside:url(#rect2-2-7-9);display:inline;fill:#000000;stroke:none;stroke-width:12.3099;stroke-dasharray:none;stroke-opacity:1"
        x="328.65625"
        y="0"><tspan
          x="174.54442"
          y="74.649775"
-         id="tspan15">2 Big Daddy Lovins</tspan></text>
+         id="tspan12">2 Big Daddy Lovins</tspan></text>
     <text
        xml:space="preserve"
-       transform="matrix(0.26458333,0,0,0.26458333,486.75223,225.44634)"
+       transform="matrix(0.26458333,0,0,0.26458333,358.93837,275.67624)"
+       id="text2-8-9-7-3"
+       style="font-size:42.6667px;text-align:center;white-space:pre;shape-inside:url(#rect2-2-7-9-0);display:inline;fill:#000000;stroke:none;stroke-width:12.3099;stroke-dasharray:none;stroke-opacity:1"
+       x="328.65625"
+       y="0"><tspan
+         x="226.05714"
+         y="64.91831"
+         id="tspan13">2 Big Daddy Lovins</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,485.033,322.58296)"
        id="text2-8-95-7"
        style="font-size:53.3333px;text-align:center;white-space:pre;shape-inside:url(#rect2-2-1-9);display:inline;fill:#000000;stroke:none;stroke-width:12.3099;stroke-dasharray:none;stroke-opacity:1"
        x="316.48178"
        y="0"><tspan
          x="189.29603"
          y="74.649775"
-         id="tspan16">7 Clear Eyes Full</tspan></text>
+         id="tspan14">7 Clear Eyes Full</tspan></text>
   </g>
 </svg>
