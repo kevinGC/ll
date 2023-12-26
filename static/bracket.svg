@@ -25,12 +25,12 @@
      inkscape:document-units="mm"
      inkscape:zoom="0.30779242"
      inkscape:cx="1130.6321"
-     inkscape:cy="731.01215"
-     inkscape:window-width="3008"
-     inkscape:window-height="1639"
-     inkscape:window-x="1920"
+     inkscape:cy="732.63663"
+     inkscape:window-width="2184"
+     inkscape:window-height="1496"
+     inkscape:window-x="2240"
      inkscape:window-y="25"
-     inkscape:window-maximized="1"
+     inkscape:window-maximized="0"
      inkscape:current-layer="layer1"
      showgrid="false" />
   <defs
@@ -113,6 +113,24 @@
        width="539.32452"
        height="90.97039"
        id="rect2-2-7-9-0" />
+    <rect
+       x="162.44714"
+       y="25.991543"
+       width="500.33722"
+       height="90.97039"
+       id="rect2-2-1-8-3" />
+    <rect
+       x="162.44714"
+       y="25.991543"
+       width="500.33722"
+       height="90.97039"
+       id="rect2-2-1-8-9" />
+    <rect
+       x="162.44714"
+       y="25.991543"
+       width="539.32452"
+       height="90.97039"
+       id="rect2-2-7-9-0-7" />
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -215,7 +233,7 @@
        y="0"><tspan
          x="192.85072"
          y="74.649775"
-         id="tspan1">8 before ill fresh</tspan></text>
+         id="tspan15">8 before ill fresh</tspan></text>
     <g
        id="g5"
        transform="matrix(1.3447449,0,0,1,-26.086653,-0.085459)">
@@ -237,7 +255,7 @@
        y="0"><tspan
          x="236.23611"
          y="74.649775"
-         id="tspan2">1 Sugar Bear</tspan></text>
+         id="tspan16">1 Sugar Bear</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,113.43745,75.946066)"
@@ -247,7 +265,7 @@
        y="0"><tspan
          x="236.23611"
          y="74.649775"
-         id="tspan3">1 Sugar Bear</tspan></text>
+         id="tspan17">1 Sugar Bear</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-5.063236,324.15257)"
@@ -257,7 +275,7 @@
        y="0"><tspan
          x="269.37411"
          y="74.649775"
-         id="tspan4">5 Druglord</tspan></text>
+         id="tspan18">5 Druglord</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-4.9771085,225.44634)"
@@ -267,21 +285,33 @@
        y="0"><tspan
          x="284.08764"
          y="74.649775"
-         id="tspan6"><tspan
+         id="tspan20"><tspan
            style="baseline-shift:baseline;vector-effect:none;stop-color:#000000;stop-opacity:1"
-           id="tspan5">4 GOATse</tspan></tspan></text>
+           id="tspan19">4 GOATse</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,113.64237,275.00057)"
        id="text2-8-95-6"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.3333px;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:center;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:pre;shape-inside:url(#rect2-2-1-8);display:inline;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:12.3099;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.3333px;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:center;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:pre;shape-inside:url(#rect2-2-1-8);display:inline;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:12.3099;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;opacity:1;stop-opacity:1"
        x="316.48178"
        y="0"><tspan
          x="284.08764"
          y="74.649775"
-         id="tspan8"><tspan
+         id="tspan22"><tspan
            style="baseline-shift:baseline;vector-effect:none;stop-color:#000000;stop-opacity:1"
-           id="tspan7">4 GOATse</tspan></tspan></text>
+           id="tspan21">4 GOATse</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,136.76838,185.46411)"
+       id="text2-8-95-6-5"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.3333px;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:center;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:pre;shape-inside:url(#rect2-2-1-8-9);display:inline;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:12.3099;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
+       x="316.48178"
+       y="0"><tspan
+         x="284.08764"
+         y="74.649775"
+         id="tspan24"><tspan
+           style="baseline-shift:baseline;vector-effect:none;stop-color:#000000;stop-opacity:1"
+           id="tspan23">4 GOATse</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,489.98578,26.648096)"
@@ -291,7 +321,7 @@
        y="0"><tspan
          x="162.44727"
          y="74.649775"
-         id="tspan9">3 World of TANKS</tspan></text>
+         id="tspan25">3 World of TANKS</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,360.85076,77.47393)"
@@ -301,7 +331,7 @@
        y="0"><tspan
          x="162.44727"
          y="74.649775"
-         id="tspan10">3 World of TANKS</tspan></text>
+         id="tspan26">3 World of TANKS</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,486.86248,126.47683)"
@@ -311,7 +341,7 @@
        y="0"><tspan
          x="245.84548"
          y="74.649775"
-         id="tspan11">6 Eastbound</tspan></text>
+         id="tspan27">6 Eastbound</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,482.36803,223.57748)"
@@ -321,7 +351,7 @@
        y="0"><tspan
          x="174.54442"
          y="74.649775"
-         id="tspan12">2 Big Daddy Lovins</tspan></text>
+         id="tspan28">2 Big Daddy Lovins</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,358.93837,275.67624)"
@@ -331,7 +361,17 @@
        y="0"><tspan
          x="226.05714"
          y="64.91831"
-         id="tspan13">2 Big Daddy Lovins</tspan></text>
+         id="tspan29">2 Big Daddy Lovins</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,356.47915,186.03178)"
+       id="text2-8-9-7-3-0"
+       style="font-size:42.6667px;text-align:center;white-space:pre;shape-inside:url(#rect2-2-7-9-0-7);display:inline;fill:#000000;stroke:none;stroke-width:12.3099;stroke-dasharray:none;stroke-opacity:1"
+       x="328.65625"
+       y="0"><tspan
+         x="226.05714"
+         y="64.91831"
+         id="tspan30">2 Big Daddy Lovins</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,485.033,322.58296)"
@@ -341,6 +381,6 @@
        y="0"><tspan
          x="189.29603"
          y="74.649775"
-         id="tspan14">7 Clear Eyes Full</tspan></text>
+         id="tspan31">7 Clear Eyes Full</tspan></text>
   </g>
 </svg>
