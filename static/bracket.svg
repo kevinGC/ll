@@ -26,10 +26,10 @@
      inkscape:zoom="0.30779242"
      inkscape:cx="1130.6321"
      inkscape:cy="732.63663"
-     inkscape:window-width="2184"
-     inkscape:window-height="1496"
-     inkscape:window-x="2240"
-     inkscape:window-y="25"
+     inkscape:window-width="1512"
+     inkscape:window-height="916"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1"
      showgrid="false" />
@@ -131,6 +131,12 @@
        width="539.32452"
        height="90.97039"
        id="rect2-2-7-9-0-7" />
+    <rect
+       x="162.44714"
+       y="25.991543"
+       width="539.32452"
+       height="90.97039"
+       id="rect2-2-7-9-0-7-3" />
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -233,7 +239,7 @@
        y="0"><tspan
          x="192.85072"
          y="74.649775"
-         id="tspan15">8 before ill fresh</tspan></text>
+         id="tspan2">8 before ill fresh</tspan></text>
     <g
        id="g5"
        transform="matrix(1.3447449,0,0,1,-26.086653,-0.085459)">
@@ -255,7 +261,7 @@
        y="0"><tspan
          x="236.23611"
          y="74.649775"
-         id="tspan16">1 Sugar Bear</tspan></text>
+         id="tspan3">1 Sugar Bear</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,113.43745,75.946066)"
@@ -265,7 +271,7 @@
        y="0"><tspan
          x="236.23611"
          y="74.649775"
-         id="tspan17">1 Sugar Bear</tspan></text>
+         id="tspan4">1 Sugar Bear</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-5.063236,324.15257)"
@@ -275,7 +281,7 @@
        y="0"><tspan
          x="269.37411"
          y="74.649775"
-         id="tspan18">5 Druglord</tspan></text>
+         id="tspan5">5 Druglord</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-4.9771085,225.44634)"
@@ -285,9 +291,9 @@
        y="0"><tspan
          x="284.08764"
          y="74.649775"
-         id="tspan20"><tspan
+         id="tspan7"><tspan
            style="baseline-shift:baseline;vector-effect:none;stop-color:#000000;stop-opacity:1"
-           id="tspan19">4 GOATse</tspan></tspan></text>
+           id="tspan6">4 GOATse</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,113.64237,275.00057)"
@@ -297,9 +303,9 @@
        y="0"><tspan
          x="284.08764"
          y="74.649775"
-         id="tspan22"><tspan
+         id="tspan9"><tspan
            style="baseline-shift:baseline;vector-effect:none;stop-color:#000000;stop-opacity:1"
-           id="tspan21">4 GOATse</tspan></tspan></text>
+           id="tspan8">4 GOATse</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,136.76838,185.46411)"
@@ -309,9 +315,9 @@
        y="0"><tspan
          x="284.08764"
          y="74.649775"
-         id="tspan24"><tspan
+         id="tspan11"><tspan
            style="baseline-shift:baseline;vector-effect:none;stop-color:#000000;stop-opacity:1"
-           id="tspan23">4 GOATse</tspan></tspan></text>
+           id="tspan10">4 GOATse</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,489.98578,26.648096)"
@@ -321,7 +327,7 @@
        y="0"><tspan
          x="162.44727"
          y="74.649775"
-         id="tspan25">3 World of TANKS</tspan></text>
+         id="tspan12">3 World of TANKS</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,360.85076,77.47393)"
@@ -331,7 +337,7 @@
        y="0"><tspan
          x="162.44727"
          y="74.649775"
-         id="tspan26">3 World of TANKS</tspan></text>
+         id="tspan13">3 World of TANKS</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,486.86248,126.47683)"
@@ -341,7 +347,7 @@
        y="0"><tspan
          x="245.84548"
          y="74.649775"
-         id="tspan27">6 Eastbound</tspan></text>
+         id="tspan14">6 Eastbound</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,482.36803,223.57748)"
@@ -351,7 +357,7 @@
        y="0"><tspan
          x="174.54442"
          y="74.649775"
-         id="tspan28">2 Big Daddy Lovins</tspan></text>
+         id="tspan15">2 Big Daddy Lovins</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,358.93837,275.67624)"
@@ -361,7 +367,7 @@
        y="0"><tspan
          x="226.05714"
          y="64.91831"
-         id="tspan29">2 Big Daddy Lovins</tspan></text>
+         id="tspan16">2 Big Daddy Lovins</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,356.47915,186.03178)"
@@ -371,7 +377,19 @@
        y="0"><tspan
          x="226.05714"
          y="64.91831"
-         id="tspan30">2 Big Daddy Lovins</tspan></text>
+         id="tspan17">2 Big Daddy Lovins</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,235.33757,178.00878)"
+       id="text2-8-9-7-3-0-0"
+       style="font-size:42.6667px;text-align:center;white-space:pre;shape-inside:url(#rect2-2-7-9-0-7-3);display:inline;fill:#000000;stroke:none;stroke-width:12.3099;stroke-dasharray:none;stroke-opacity:1"
+       x="328.65625"
+       y="0"><tspan
+         x="226.14047"
+         y="64.91831"
+         id="tspan19"><tspan
+           style="font-weight:bold"
+           id="tspan18">Big Daddy Lovins</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,485.033,322.58296)"
@@ -381,6 +399,6 @@
        y="0"><tspan
          x="189.29603"
          y="74.649775"
-         id="tspan31">7 Clear Eyes Full</tspan></text>
+         id="tspan20">7 Clear Eyes Full</tspan></text>
   </g>
 </svg>
