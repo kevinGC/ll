@@ -7,10 +7,12 @@ import (
 	"log"
 	"net/http"
 	"strings"
+	"time"
 )
 
-type HeaderData struct {
+type BaseData struct {
 	Active string
+	Year   int
 }
 
 var (
@@ -81,10 +83,11 @@ func main() {
 
 func index(response http.ResponseWriter, request *http.Request) {
 	var data = &struct {
-		HeaderData HeaderData
+		BaseData BaseData
 	}{
-		HeaderData: HeaderData{
+		BaseData: BaseData{
 			Active: "smb",
+			Year:   time.Now().Year(),
 		},
 	}
 	smbTemplate.ExecuteTemplate(response, "base", data)
@@ -92,10 +95,11 @@ func index(response http.ResponseWriter, request *http.Request) {
 
 func madden(response http.ResponseWriter, request *http.Request) {
 	var data = &struct {
-		HeaderData HeaderData
+		BaseData BaseData
 	}{
-		HeaderData: HeaderData{
+		BaseData: BaseData{
 			Active: "madden",
+			Year:   time.Now().Year(),
 		},
 	}
 	maddenTemplate.ExecuteTemplate(response, "base", data)
@@ -103,13 +107,14 @@ func madden(response http.ResponseWriter, request *http.Request) {
 
 func ff2023(response http.ResponseWriter, request *http.Request) {
 	var data = &struct {
-		Players    []PlayerStats
-		Bracket    template.HTML
-		HeaderData HeaderData
+		Players  []PlayerStats
+		Bracket  template.HTML
+		BaseData BaseData
 	}{
 		Players: players,
-		HeaderData: HeaderData{
+		BaseData: BaseData{
 			Active: "ff2023",
+			Year:   time.Now().Year(),
 		},
 		Bracket: template.HTML(bracketSVG),
 	}
