@@ -16,9 +16,10 @@ type BaseData struct {
 }
 
 var (
-	smbTemplate    = template.Must(template.ParseFiles("templates/smb.html", "templates/base.html"))
-	maddenTemplate = template.Must(template.ParseFiles("templates/madden.html", "templates/base.html"))
-	ff2023Template = template.Must(template.ParseFiles("templates/ff2023.html", "templates/base.html"))
+	smbTemplate      = template.Must(template.ParseFiles("templates/smb.html", "templates/base.html"))
+	maddenTemplate   = template.Must(template.ParseFiles("templates/madden.html", "templates/base.html"))
+	ff2023Template   = template.Must(template.ParseFiles("templates/ff2023.html", "templates/base.html"))
+	basementTemplate = template.Must(template.ParseFiles("templates/basement.html", "templates/base.html"))
 )
 
 //go:embed ff2023_stats.txt
@@ -75,6 +76,7 @@ func main() {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/madden", madden)
 	http.HandleFunc("/ff2023", ff2023)
+	http.HandleFunc("/basement", basement)
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 
 	log.Printf("Starting...")
@@ -119,4 +121,16 @@ func ff2023(response http.ResponseWriter, request *http.Request) {
 		Bracket: template.HTML(bracketSVG),
 	}
 	ff2023Template.ExecuteTemplate(response, "base", data)
+}
+
+func basement(response http.ResponseWriter, request *http.Request) {
+	var data = &struct {
+		BaseData BaseData
+	}{
+		BaseData: BaseData{
+			Active: "basement",
+			Year:   time.Now().Year(),
+		},
+	}
+	basementTemplate.ExecuteTemplate(response, "base", data)
 }
