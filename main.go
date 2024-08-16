@@ -19,6 +19,7 @@ var (
 	smbTemplate      = template.Must(template.ParseFiles("templates/smb.html", "templates/base.html"))
 	maddenTemplate   = template.Must(template.ParseFiles("templates/madden.html", "templates/base.html"))
 	ff2023Template   = template.Must(template.ParseFiles("templates/ff2023.html", "templates/base.html"))
+	ff2024Template   = template.Must(template.ParseFiles("templates/ff2024.html", "templates/base.html"))
 	basementTemplate = template.Must(template.ParseFiles("templates/basement.html", "templates/base.html"))
 )
 
@@ -76,6 +77,7 @@ func main() {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/madden", madden)
 	http.HandleFunc("/ff2023", ff2023)
+	http.HandleFunc("/ff2024", ff2024)
 	http.HandleFunc("/basement", basement)
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 
@@ -121,6 +123,18 @@ func ff2023(response http.ResponseWriter, request *http.Request) {
 		Bracket: template.HTML(bracketSVG),
 	}
 	ff2023Template.ExecuteTemplate(response, "base", data)
+}
+
+func ff2024(response http.ResponseWriter, request *http.Request) {
+	var data = &struct {
+		BaseData BaseData
+	}{
+		BaseData: BaseData{
+			Active: "ff2024",
+			Year:   time.Now().Year(),
+		},
+	}
+	ff2024Template.ExecuteTemplate(response, "base", data)
 }
 
 func basement(response http.ResponseWriter, request *http.Request) {
